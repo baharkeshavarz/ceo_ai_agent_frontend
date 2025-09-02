@@ -2,7 +2,6 @@
 
 import type { GlobalStylesProps, ThemeOptions } from '@mui/material'
 import { createTheme } from '@mui/material'
-import Link from 'next/link'
 import { grey } from '@mui/material/colors'
 
 export const globalStyles: GlobalStylesProps['styles'] = () => ({
@@ -28,25 +27,22 @@ export const globalStyles: GlobalStylesProps['styles'] = () => ({
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: '#2747f0',
-      light: '#36b89f',
-      dark: '#02664f',
+      main: '#0070B8',
+      dark: '#09324eff',
+      light: '#347eafff',
       contrastText: '#FFF',
     },
     secondary: {
-      main: '#017FED',
-      dark: '#3D68B5',
-      light: '#A2CBF3',
-      contrastText: '#FFF',
+      main: '#fcba07ff',
+      dark: '#EDC967',
+      light: '#F7EF8A',
+      contrastText: '#000',
     },
     background: {
-      default: '#111928',
-      paper: '#FFF',
+      default: '#fcfcfc',
     },
-
   },
   typography: {
-    fontFamily: 'Inter, sans-serif',
     htmlFontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -107,26 +103,112 @@ const themeOptions: ThemeOptions = {
     borderRadius: 8,
   },
   components: {
-    MuiListItem: {
-      defaultProps: {
-        disableGutters: true,
-        disablePadding: true,
-      },
-    },
-
-    MuiBottomNavigationAction: {
-      defaultProps: {
-        component: Link,
-      },
-    },
     MuiCssBaseline: {
       styleOverrides: `
-            @font-face {
-               font-family: 'yekanBakh';
-               src: url('/assets/fonts/yekanBakh/woff/IRANSansWeb.woff') format('woff');
-               font-weight: 500;
-               font-style: normal;
-             }`,
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 100;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum01Hairline.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum01Hairline.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum01Hairline.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum01Hairline.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 200;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum02Thin.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum02Thin.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum02Thin.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum02Thin.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 300;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum03Light.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum03Light.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum03Light.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum03Light.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 400;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum04Regular.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum04Regular.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum04Regular.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum04Regular.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 500;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum05Medium.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum05Medium.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum05Medium.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum05Medium.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 600;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum06Bold.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum06Bold.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum06Bold.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum06Bold.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 700;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum07Heavy.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum07Heavy.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum07Heavy.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum07Heavy.ttf")
+        format("truetype");
+    }
+    
+    @font-face {
+      font-family: 'YekanBakh';
+      font-style: normal;
+      font-weight: 800;
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum08Fat.eot");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum08Fat.eot?#iefix")
+        format("embedded-opentype");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum08Fat.woff")
+        format("woff");
+      src: url("/assets/fonts/yekanBakh/YekanBakhFaNum08Fat.ttf")
+        format("truetype");
+    }
+    `,
     },
     MuiSkeleton: {
       styleOverrides: {
@@ -156,6 +238,6 @@ export const persianTheme = createTheme({
   direction: 'rtl',
   typography: {
     ...themeOptions.typography,
-    fontFamily: 'yekanBakh, noto-Arabic',
+    fontFamily: 'YekanBakh,  sans-serif',
   },
 })

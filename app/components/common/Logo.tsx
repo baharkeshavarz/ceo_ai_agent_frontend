@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import React from 'react'
 import type { ImageProps } from 'next/image'
 import Image from 'next/image'
+import { DEFAULT_LOGO_PATH } from '@/constants/routes'
 
 const Logo: FC<Partial<ImageProps>> = (props) => {
   return (
@@ -10,7 +11,7 @@ const Logo: FC<Partial<ImageProps>> = (props) => {
       width={177}
       height={40}
       alt=""
-      src={props?.src ?? '/assets/images/logo.png'}
+      src={props?.src ?? DEFAULT_LOGO_PATH}
       {...props}
     />
   )
