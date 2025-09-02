@@ -1,6 +1,6 @@
 'use client'
 
-import { ThemeProvider } from '@emotion/react'
+import { ThemeProvider } from '@mui/material'
 import type { FC, PropsWithChildren } from 'react'
 import { persianTheme } from '@/config/theme'
 

@@ -1,8 +1,8 @@
 import { getLocaleOnServer } from '@/i18n/server'
 import { getHtmlDir, getTailwindDirection } from '@/utils/rtl'
 
-// import './styles/globals.css'
-// import './styles/markdown.scss'
+import './styles/globals.css'
+import './styles/markdown.scss'
 import TanstackProvider from '@/providers/TanstackProvider'
 import ToastProvider from '@/providers/ToastProvider'
 import MuiThemeProvider from '@/providers/MuiThemeProvider'
@@ -25,7 +25,6 @@ const LocaleLayout = ({
               <MuiThemeProvider>
                 {/* <GlobalStyles styles={globalStyle} /> */}
                 <ToastProvider />
-                {locale} {dir}
                 {children}
               </MuiThemeProvider>
             </TanstackProvider>
