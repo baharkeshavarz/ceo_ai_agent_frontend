@@ -39,10 +39,10 @@ const LoginForm = () => {
   })
 
   const onSubmit: SubmitHandler<LoginPayload> = async (payload) => {
-    console.log(payload)
-    const { data } = await mutateAsync({ payload })
-    if (data?.succeed)
-      router.push(DEFAULT_HOME_PAGE_PATH)
+    // const { data } = await mutateAsync({ payload })
+
+    // if (data)
+    router.push(DEFAULT_HOME_PAGE_PATH)
   }
 
   const fields: FormBuilderProps['fields'] = {

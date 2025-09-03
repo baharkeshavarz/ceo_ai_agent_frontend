@@ -222,7 +222,6 @@ const Main: FC<IMainProps> = () => {
         if (error) {
           Toast.notify({ type: 'error', message: error })
           throw new Error(error)
-          return
         }
         const _conversationId = getConversationIdFromStorage(APP_ID)
         const currentConversation = conversations.find(item => item.id === _conversationId)
@@ -651,12 +650,24 @@ const Main: FC<IMainProps> = () => {
         onCreateNewChat={() => handleConversationIdChange('-1')}
       />
       <div className="flex rounded-t-2xl bg-white overflow-hidden h-[calc(100vh_-_3rem)]">
+        {/* sidebar */}
+        {!isMobile && renderSidebar()}
+        {isMobile && isShowSidebar && (
+          <div className='fixed inset-0 z-50'
+            style={{ backgroundColor: 'rgba(35, 56, 118, 0.2)' }}
+            onClick={hideSidebar}
+          >
+            <div className='inline-block' onClick={e => e.stopPropagation()}>
+              {renderSidebar()}
+            </div>
+          </div>
+        )}
         {/* main */}
         <div className='flex-grow flex flex-col'>
           {
             hasSetInputs && (
               <div className='flex-1 flex flex-col pc:w-[794px] max-w-full mobile:w-full mx-auto'>
-                <div className='flex-1 overflow-y-auto px-3.5' ref={chatListDomRef}>
+                <div className='flex-1 overflow-y-auto p-3.5' ref={chatListDomRef}>
                   <div className="space-y-[30px]">
                     {chatList.map((item) => {
                       if (item.isAnswer) {
@@ -699,19 +710,6 @@ const Main: FC<IMainProps> = () => {
               </div>)
           }
         </div>
-
-        {/* sidebar */}
-        {!isMobile && renderSidebar()}
-        {isMobile && isShowSidebar && (
-          <div className='fixed inset-0 z-50'
-            style={{ backgroundColor: 'rgba(35, 56, 118, 0.2)' }}
-            onClick={hideSidebar}
-          >
-            <div className='inline-block' onClick={e => e.stopPropagation()}>
-              {renderSidebar()}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )

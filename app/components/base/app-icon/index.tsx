@@ -1,6 +1,5 @@
 import type { FC } from 'react'
-import classNames from 'classnames'
-import style from './style.module.css'
+import Logo from '../../common/Logo'
 
 export type AppIconProps = {
   size?: 'xs' | 'tiny' | 'small' | 'medium' | 'large'
@@ -17,19 +16,7 @@ const AppIcon: FC<AppIconProps> = ({
   className,
 }) => {
   return (
-    <span
-      className={classNames(
-        style.appIcon,
-        size !== 'medium' && style[size],
-        rounded && style.rounded,
-        className ?? '',
-      )}
-      style={{
-        background,
-      }}
-    >
-      🤖
-    </span>
+    <Logo width={64} height={64} />
   )
 }
 

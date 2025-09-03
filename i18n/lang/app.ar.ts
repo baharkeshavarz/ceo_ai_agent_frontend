@@ -1,35 +1,30 @@
 const translation = {
   common: {
-    welcome: 'مرحباً بك في استخدام',
-    appUnavailable: 'التطبيق غير متاح',
-    appUnkonwError: 'التطبيق غير متاح',
+    welcome: 'خوش آمدید به استفاده از',
+    appUnavailable: 'برنامه در دسترس نیست',
+    appUnkonwError: 'برنامه در دسترس نیست',
   },
   chat: {
-    newChat: 'محادثة جديدة',
-    newChatDefaultName: 'محادثة جديدة',
-    openingStatementTitle: 'البيان الافتتاحي',
-    powerBy: 'مدعوم بواسطة',
-    prompt: 'الموجه',
-    privatePromptConfigTitle: 'إعدادات المحادثة',
-    publicPromptConfigTitle: 'الموجه الأولي',
-    configStatusDes: 'قبل البدء، يمكنك تعديل إعدادات المحادثة',
-    configDisabled:
-      'تم استخدام إعدادات الجلسة السابقة لهذه الجلسة.',
-    startChat: 'ابدأ المحادثة',
-    privacyPolicyLeft:
-      'يرجى قراءة ',
-    privacyPolicyMiddle:
-      'سياسة الخصوصية',
-    privacyPolicyRight:
-      ' المقدمة من مطور التطبيق.',
+    newChat: 'چت جدید',
+    newChatDefaultName: 'چت جدید',
+    openingStatementTitle: 'بیانیه افتتاحیه',
+    powerBy: 'قدرت گرفته از',
+    prompt: 'ورودی',
+    privatePromptConfigTitle: 'تنظیمات چت',
+    publicPromptConfigTitle: 'ورودی اولیه',
+    configStatusDes: 'قبل از شروع، می‌توانید تنظیمات چت را تغییر دهید',
+    configDisabled: 'از تنظیمات جلسه قبلی برای این جلسه استفاده شده است.',
+    startChat: 'شروع چت',
+    privacyPolicyLeft: 'لطفاً ',
+    privacyPolicyMiddle: 'سیاست حفظ حریم خصوصی',
+    privacyPolicyRight: ' ارائه شده توسط توسعه‌دهنده برنامه را مطالعه کنید.',
   },
   errorMessage: {
-    valueOfVarRequired: 'لا يمكن أن تكون قيمة المتغير فارغة',
-    waitForResponse:
-      'يرجى انتظار استجابة الرسالة السابقة لإكمالها.',
+    valueOfVarRequired: 'مقدار متغیر نمی‌تواند خالی باشد',
+    waitForResponse: 'لطفاً منتظر پاسخ پیام قبلی باشید تا تکمیل شود.',
   },
   variableTable: {
-    optional: 'اختياري',
+    optional: 'اختیاری',
   },
 }
 

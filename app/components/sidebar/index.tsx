@@ -5,9 +5,8 @@ import {
   ChatBubbleOvalLeftEllipsisIcon,
   PencilSquareIcon,
 } from '@heroicons/react/24/outline'
-import { ChatBubbleOvalLeftEllipsisIcon as ChatBubbleOvalLeftEllipsisSolidIcon } from '@heroicons/react/24/solid'
+import { ChatBubbleOvalLeftEllipsisIcon as ChatSolidIcon } from '@heroicons/react/24/solid'
 import Button from '@/app/components/base/button'
-// import Card from './card'
 import type { ConversationItem } from '@/types/app'
 
 function classNames(...classes: any[]) {
@@ -29,53 +28,66 @@ const Sidebar: FC<ISidebarProps> = ({
   onCurrentIdChange,
   list,
 }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isRTL = i18n.dir() === 'rtl'
+
   return (
     <div
-      className="shrink-0 flex flex-col overflow-y-auto bg-white pc:w-[244px] tablet:w-[192px] mobile:w-[240px]  border-l border-gray-200 tablet:h-[calc(100vh_-_3rem)] mobile:h-screen"
+      className={classNames(
+        'shrink-0 flex flex-col overflow-y-auto border-l border-gray-200',
+        'bg-gradient-to-b from-white via-gray-50 to-white',
+        'pc:w-[244px] tablet:w-[192px] mobile:w-[240px]',
+        'tablet:h-[calc(100vh_-_3rem)] mobile:h-screen',
+        isRTL ? 'text-right' : 'text-left',
+      )}
     >
+      {/* New Chat Button */}
       {list.length < MAX_CONVERSATION_LENTH && (
-        <div className="flex flex-shrink-0 p-4 !pb-0">
+        <div className="flex p-4 pb-0">
           <Button
-            onClick={() => { onCurrentIdChange('-1') }}
-            className="group block w-full flex-shrink-0 !justify-start !h-9 text-primary-600 items-center text-sm">
-            <PencilSquareIcon className="mr-2 h-4 w-4" /> {t('app.chat.newChat')}
+            onClick={() => onCurrentIdChange('-1')}
+            className="group w-full flex items-center justify-center gap-2 rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm h-9"
+          >
+            <PencilSquareIcon className="h-4 w-4" />
+            {t('app.chat.newChat')}
           </Button>
         </div>
       )}
 
-      <nav className="mt-4 flex-1 space-y-1 bg-white p-4 !pt-0">
+      {/* Conversation List */}
+      <nav className="mt-4 flex-1 space-y-2 px-4 pb-6">
         {list.map((item) => {
           const isCurrent = item.id === currentId
-          const ItemIcon
-            = isCurrent ? ChatBubbleOvalLeftEllipsisSolidIcon : ChatBubbleOvalLeftEllipsisIcon
+          const ItemIcon = isCurrent ? ChatSolidIcon : ChatBubbleOvalLeftEllipsisIcon
+
           return (
             <div
-              onClick={() => onCurrentIdChange(item.id)}
               key={item.id}
+              onClick={() => onCurrentIdChange(item.id)}
               className={classNames(
+                'flex items-center cursor-pointer px-3 py-2 rounded-lg shadow-sm transition-all duration-150 group',
                 isCurrent
-                  ? 'bg-primary-50 text-primary-600'
-                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-700',
-                'group flex items-center rounded-md px-2 py-2 text-sm font-medium cursor-pointer',
+                  ? 'bg-primary-50 text-primary-700 ring-1 ring-primary-200'
+                  : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-200',
               )}
             >
               <ItemIcon
                 className={classNames(
-                  isCurrent
-                    ? 'text-primary-600'
-                    : 'text-gray-400 group-hover:text-gray-500',
-                  'mr-3 h-5 w-5 flex-shrink-0',
+                  isRTL ? 'ml-3' : 'mr-3',
+                  'h-5 w-5 flex-shrink-0',
+                  isCurrent ? 'text-primary-600' : 'text-gray-400 group-hover:text-primary-500',
                 )}
                 aria-hidden="true"
               />
-              {item.name}
+              <span className="truncate font-medium">{item.name}</span>
             </div>
           )
         })}
       </nav>
-      <div className="flex flex-shrink-0 pr-4 pb-4 pl-4">
-        <div className="text-gray-400 font-normal text-xs">© {copyRight} {(new Date()).getFullYear()}</div>
+
+      {/* Footer */}
+      <div className="px-4 py-3 border-t border-gray-100 text-xs text-gray-400">
+        © {copyRight} {new Date().getFullYear()}
       </div>
     </div>
   )
