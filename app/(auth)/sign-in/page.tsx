@@ -24,8 +24,8 @@ const LoginForm = () => {
   }
 
   const resolveSchema: yup.ObjectSchema<LoginPayload> = yup.object({
-    username: yup.string().required().label(labels.username),
-    password: yup.string().required().label(labels.password),
+    username: yup.string().required('وارد کردن این فیلد اجباری است').label(labels.username),
+    password: yup.string().required('وارد کردن این فیلد اجباری است').label(labels.password),
   })
 
   const methods = useForm<LoginPayload>({

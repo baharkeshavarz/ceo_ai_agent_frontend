@@ -17,10 +17,10 @@ const customLocale: LocaleObject = {
       return `حداقل ${min} کاراکتر وارد کنید.`
     },
     matches: () => {
-      return `مقدار وارد شده معتبر نیست.`
+      return 'مقدار وارد شده معتبر نیست.'
     },
     email: () => {
-      return `ایمیل وارد شده معتبر نیست.`
+      return 'ایمیل وارد شده معتبر نیست.'
     },
   },
   mixed: {
